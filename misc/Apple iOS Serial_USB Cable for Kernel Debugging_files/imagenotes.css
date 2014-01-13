@@ -1,0 +1,18 @@
+/*
+ * I'm puttin ghtis in a different .css file so it can be included w/o the main style..
+ */
+.imagenote {visibility:visible; position: absolute; border: 2px ridge #ff0; padding: 0px; color: white;}
+.imgnote_overlay {position: absolute; width: 100%; height: 100%; top:0px; left:0px;}
+.imagenote_highlight {border: 2px solid #ff0;}
+div.imagenote_body {position: absolute; border: 1px solid #222; background: #fff; padding: 5px; padding-bottom:2px; width:210px; color: black; text-align: left;}
+.noteEdit_handle {position: absolute; border: 1px solid #333; width:  6px; height: 6px; z-index: 3;}
+.noteEdit_handleN  { top:   -5px; left:    0px; cursor:  n-resize; margin-left:  49%; }
+.noteEdit_handleNE { top:   -5px; right:  -5px; cursor: ne-resize; }
+.noteEdit_handleE  { top:    0px; right:  -5px; cursor:  e-resize; margin-top:   49%; }
+.noteEdit_handleSE { right: -5px; bottom: -5px; cursor: se-resize; }
+.noteEdit_handleS  { right:  0px; bottom: -5px; cursor:  s-resize; margin-right: 49%; }
+.noteEdit_handleSW { left:  -5px; bottom: -5px; cursor: sw-resize; }
+.noteEdit_handleW  { top:    0px; left:   -5px; cursor:  e-resize; margin-top:   49%; }
+.noteEdit_handleNW { top:   -5px; left:   -5px; cursor: nw-resize; }
+
+

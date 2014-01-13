@@ -1,0 +1,19 @@
+#queuewrapper {border: 1px solid #ddd; padding: 0 5px 10px 5px;}
+#swfupload fieldset {padding: 0 5px 5px 5px; margin: 10px 0 0 0; border: 1px solid #ddd;}
+#swfupload legend {color: #666; margin-left: 10px;}
+.progressWrapper {width: 190px; float:left; margin: 10px 5px 0 0;}
+.progressContainer {padding: 3px; height: 50px; border: solid 1px #ff5200; background-color: #fffed6; overflow: hidden;}
+.message {margin: 1em 0; padding: 10px 20px; border: solid 1px #ffdd99; background-color: #ffc; overflow: hidden;}
+.red {border: solid 1px #b50000; background-color: #ffebeb;}
+.green {border: solid 1px #ff5200; background-color: #fffed6;}
+.blue {color: #999; border: solid 1px #ddd; background-color: #f0f0f0;}
+.progressName {font-size: 8pt; font-weight: 700; color: #555; width: 132px; height: 14px; text-align: left; white-space: nowrap; overflow: hidden;}
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError {font-size: 0; width: 0%; height: 10px; background-color: #ff5200; margin-top: 2px;}
+.progressBarComplete {width: 100%; background-color: green; visibility: hidden;}
+.progressBarError {width: 100%; border: solid 1px red; background-color: #faa; visibility: hidden;}
+.progressBarStatus {margin-top: 2px; width: 134px; font-size: 7pt; font-family: Arial; text-align: left; white-space: nowrap;}
+a.progressCancel {font-size: 0; display: block; height: 14px; width: 14px; background-image: url(/static/img/cancelbutton.gif); background-repeat: no-repeat; background-position: -14px 0px; float: right;}
+a.progressCancel:hover {background-position: 0px 0px;}
+.progressContainer .uploadThumb {float:right;}

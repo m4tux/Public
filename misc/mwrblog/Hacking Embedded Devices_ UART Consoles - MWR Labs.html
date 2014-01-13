@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+    <title>Hacking Embedded Devices: UART Consoles - MWR Labs</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="Hacking%20Embedded%20Devices_%20UART%20Consoles%20-%20MWR%20Labs_files/labs.css">
+<link type="image/ico" rel="icon" href="http://labs.mwrinfosecurity.com/images/favicon.ico">
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header"> 
+  <h1><a href="http://labs.mwrinfosecurity.com/">MWR Labs</a></h1>
+  <a href="http://www.mwrinfosecurity.com/" id="mwri" title="Visit mwrinfosecurity.com">MWR InfoSecurity</a>
+</div>
+<ul id="menu">
+  
+    
+      <li class="advisories"><a href="http://labs.mwrinfosecurity.com/advisories/">Advisories</a></li>
+    
+    
+      
+    
+      
+    
+      
+        <li class="active"><a href="http://labs.mwrinfosecurity.com/blog/">/var/log/messages</a></li>
+      
+    
+      
+    
+      
+        <li class=""><a href="http://labs.mwrinfosecurity.com/publications/">Publications</a></li>
+      
+    
+      
+    
+      
+        <li class=""><a href="http://labs.mwrinfosecurity.com/tools/">Tools</a></li>
+      
+    
+      
+    
+      
+        <li class=""><a href="http://labs.mwrinfosecurity.com/research-projects/">Research Projects</a></li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+      <li class="careers"><a href="http://labs.mwrinfosecurity.com/working-for-mwr-infosecurity/">Working for MWR InfoSecurity</a></li>
+    
+  
+</ul>
+      <div id="main">
+        <div id="widerightdtl">
+          <div class="widerightdtltop"></div>
+          <div id="widerightinner">
+            
+            
+              <h2>Hacking Embedded Devices: UART Consoles</h2>
+            
+            <p>The ‘Hardware Hacking’ scene has exploded recently, 
+thanks largely to the widespread adoption of devices such as the Arduino
+ and Raspberry PI by the hacking community. Applying hardware hacking 
+techniques during product assessments can often give unrivaled levels of
+ access to hidden or undocumented functionality particularly when 
+reviewing embedded devices such as routers, switches and access points.</p>
+<p>Prior to his employment with <span class="caps">MWR</span>, Hacker Fantastic, a Senior Security Consultant with <span class="caps">MWR</span>, reviewed the “<span class="caps">SAGEM</span>
+ F@ST2504 Sky Broadband router”, at the time a popular consumer 
+broadband device, and documented his findings in a blog post and 
+presentation titled <a href="http://blog.hackerfantastic.com/2011/11/hacking-embedded-devices-for-fun-profit.html">Hacking Embedded Devices: For Fun and Profit</a>.
+ Matthew has since followed up on his prior work by reviewing the 
+“Virgin Media SuperHub” a Cable Modem/Router used by Virgin Media Cable 
+in the UK and re-visited his assessment of the “<span class="caps">SAGEM</span> F@ST2504 Sky Broadband router”.</p>
+<p>Using physical assessment techniques Matthew has been able to obtain 
+full privileged “root” shell capabilities on both the “Virgin Media 
+SuperHub” and again on the previously assessed “<span class="caps">SAGEM</span> F@ST2504 Sky Broadband router”.</p>
+<p>Both the ‘Virgin’ and ‘Sky’ devices were found to have many more 
+in-built capabilities available, or intended, by the ISP’s who issued 
+them. Both were found to have advanced networking capabilities such as 
+allowing for the manipulation of Media Access Control (<span class="caps">MAC</span>)
+ addresses, packet analyzers, the ability to change or review 
+configuration data not available within the embedded web services and 
+review any credentials configured on the device. It was possible to 
+recover the devices firmware and to begin installing custom Operating 
+Systems onto the devices enabling users to take full advantage of the 
+hardware provided.</p>
+<p>This blog post aims to show that the methodologies, tools and 
+concepts demonstrated can, and have, worked across multiple devices not 
+just those provided by Sky Broadband and Virgin Media.</p>
+<h3><span class="caps">UART</span> Hacking</h3>
+<p>The goal of the assessment was to obtain the firmware from the device
+ so that it could be reverse engineered assisting in efforts to identify
+ software vulnerabilities. Additionally, the enablement of a remote 
+management service was desirable in order to provide elevated privileges
+ to the end-user.</p>
+<p>This process began by physically opening the device in order to 
+determine the precise hardware in use. Through manual inspection of the 
+device’s internals it was possible to obtain the relevant component 
+datasheets from the Internet. By using the Integrated Circuit (IC) 
+labels of the components, it was possible to build a picture of the 
+circuit design and understand the purpose of each of the IC chips on the
+ board. There were clear indications of WiFi <span class="caps">NIC</span> devices, Ethernet <span class="caps">NIC</span> controllers, the Microprocessor, Flash chips and more, which could all be easily identified using Google searches.</p>
+<p>The Sky Broadband device was previously identified as a re-branded <span class="caps">SAGEM</span>
+ F@ST2504 router. The investigation of the Virgin device led to the 
+discovery that it is a re-branded Netgear CG3101D wireless router and 
+cable modem; this could be derived from stickers on the printed circuit 
+board (<span class="caps">PCB</span>). Armed with this information the 
+task of locating the schematics of similar devices and data sheets 
+became much easier. It also helped when trying to identify potential 
+pin-outs from the chipsets on the <span class="caps">PCB</span>, as these are often available by reviewing the device documentation sets.</p>
+<p>While reviewing the Virgin Media Super Hub <span class="caps">PCB</span> it was observed that four outputs were not connected to anything close to the Central Processing Unit (<span class="caps">CPU</span>) and appeared marked off on the <span class="caps">PCB</span>. The pins for the Virgin Super Hub can be seen in the image below-left, just beneath the <span class="caps">CPU</span> heat sink; they are outlined in white on the <span class="caps">PCB</span>.
+ A similar set of outputs could also be identified on the Sky Broadband 
+device and these pins can be seen to the bottom right of the image below
+ right. There are many more pins and unsoldered pads on both boards, 
+however the close proximity to the <span class="caps">CPU</span>, and because they are grouped in sets of 4 made them of interest.</p>
+<div style="margin-bottom: 10px; text-align: center">
+<img src="Hacking%20Embedded%20Devices_%20UART%20Consoles%20-%20MWR%20Labs_files/vmsh-output-pins.jpg" style="display: inline-block; height: 200px; margin-right: 40px;" alt="vmsh-output-pins">
+<img src="Hacking%20Embedded%20Devices_%20UART%20Consoles%20-%20MWR%20Labs_files/skybb-output-pins.jpg" style="display: inline-block; height: 200px" alt="skybb-output-pins">
+</div>
+
+<p>These pin outputs were highlighted as a potential area of attack and 
+worthy of further investigation. Manufacturers often build in additional
+ capabilities to devices that are mass-produced for markets including 
+Joint Test Action Group (<span class="caps">JTAG</span>) and Universal Asynchronous Receiver/Transmitter (<span class="caps">UART</span>) interfaces that allow recovery and/or debugging of the device when deploying firmware and/or for engineering purposes.</p>
+<p>Investigations began by attaching a <a href="http://www.ladyada.net/learn/multimeter/">multimeter</a> to the outputs and reading the voltage. Three of the outputs read 3.3V and the fourth 0.02V. The fourth pin was ground. A <span class="caps">UART</span>
+ or serial interface typically consists of 4 pins, power, transmit, 
+receive and ground it was therefore hypothesized that the pins maybe 
+utilised for this purpose.</p>
+<p>The device was then powered and probes connected to the pins using a <a href="http://www.sparkfun.com/products/10244"><span class="caps">DSO</span> Nano v2 Oscilloscope</a>,
+ as this allows for visualisation of the voltage wave shape as it passes
+ along an electronic circuit. Square waveforms were clearly visible on 
+one of the pins indicating the likely presence of a data signal. The 
+transmission of binary data appears as a square waveform on an 
+oscilloscope display. A <a href="http://www.ikalogic.com/ikalogic-products/scanalogic-2/">logic analyzer</a>
+ was then used to capture the signals as they were generated from the 
+pins on the board. Software was then used to analyze the signal and 
+determine its purpose such as potential bus type. The logic analyzer 
+identified the output signal as a <span class="caps">UART</span> 
+interface, which is essentially a serial port that had been left in by 
+the manufacturer and not connected for use. An example of the output of 
+the logic analysis can be seen in the image below.</p>
+<p><img src="Hacking%20Embedded%20Devices_%20UART%20Consoles%20-%20MWR%20Labs_files/logic-analysis.jpg" alt="logic-analysis"></p>
+<p>The pin-out configuration for a <span class="caps">UART</span> is typically power (<span class="caps">VCC</span>),
+ transmit (TX), receive (RX) and ground (V-). It was possible to see 
+data being transmitted on the TX pin and with some experimentation with 
+probes and the aforementioned tools, the RX pin was easily located. It 
+transpired that only a TX, RX and <span class="caps">GND</span> pin need
+ to be connected for functionality on both of these devices and that the
+ power pin could be ignored. Repeating the same process with the Sky 
+Broadband device exposed a similar configuration for a <span class="caps">UART</span> that could be used to interface with a serial console on the device.</p>
+<p>For a temporary connection and to begin interacting with the device without soldering, it is possible to make use of a <a href="http://dangerousprototypes.com/docs/Bus_Pirate">Bus Pirate</a>.
+ A Bus Pirate is the Swiss army knife for electronics hobbyists and 
+hardware hackers that allows for interfacing with many different types 
+of hardware bus lines. The Bus Pirate allows for quick and clean <span class="caps">UART</span> monitoring and/or interaction. Alternatively <a href="http://www.sparkfun.com/products/718">FT232-RL</a> based board can be utilised to quickly add a serial console that can allow a computer to interface with the <span class="caps">UART</span>. The console can then be accessed over a Universal Serial Bus (<span class="caps">USB</span>) connection.</p>
+<p>The <span class="caps">IKA</span>-<span class="caps">LOGIC</span> 
+tools were used to automatically identify the baud rates in use, 
+although this can also be done with trial and error in a terminal 
+program such as minicom or hyperterminal. A configuration setting of 
+115200bps (8N1) with no hardware or software flow control enabled was 
+found to be the necessary setting for serial communication to both the 
+Virgin and Sky devices. This process requires experimentation and 
+persistence. Many different configurations were attempted and required 
+the sampling of logic signals and analysis at different clock speeds.</p>
+<p>Accessing the console on the Virgin Media SuperHub it was discovered 
+that the console prompt was non-interactive. In order to interact with 
+the device OS, further work was required, although some diagnostic 
+information could be obtained from the non-interactive output. The 
+device allows for configuration via non-volatile memory, facilitated by 
+uploading a configuration binary file via the web interface. The screen 
+shot below illustrates this.</p>
+<p><img src="Hacking%20Embedded%20Devices_%20UART%20Consoles%20-%20MWR%20Labs_files/vmsh-web-interface.jpg" alt="vmsh-web-interface"></p>
+<p>The dynamic state is actually located on the flash memory chip. A 
+memory configuration from a similar device with an older configuration 
+was located by downloading “GatewaySettings.bin” files from similar 
+devices, older Virgin devices and Internet forums. The console state is 
+set within the configuration data enabling an interactive shell once the
+ settings binary from one of these devices had been uploaded. This 
+allowed for a full interactive shell and complete control over the 
+Virgin Media SuperHub.<br>
+ <br>
+With interactive access obtained it was possible to explore the eCos 
+(embedded configurable OS) device further. From this interactive console
+ state it was possible to read and write to the flash chip and resident 
+memory; meaning it was possible to obtain the compressed firmware 
+images. From the eCos <span class="caps">CLI</span> it was possible to 
+extract the contents of the flash chip meaning that the compressed 
+firmware, backup firmware, boot loader could be downloaded as well as 
+dynamic and permanent (non-user definable) storage areas. Additionally 
+by exploring the <code>read_memory</code> command it was possible to 
+extract the uncompressed OS as it was running from resident memory on 
+the device. MD5 sums of the extracted files from the flash storage can 
+be seen in the terminal output below.</p>
+<pre><code>$ md5 *.bin
+MD5 (Bootloader.bin) = cd7508c75654cb0b89351997dbd569d6
+MD5 (Dynamic.bin) = 18a8bfaf1f020100e2859dc876bc7965
+MD5 (Image1.bin) = 4ea12f34807671a5e1e103362b1c8ea5
+MD5 (Image2.bin) = c8c16d696654f4f11c83b2ad73dbdff7
+MD5 (Perm.bin) = 1572d197ac4e0a7c33351f49d0fff837</code></pre>
+<p>The level of access obtained allowed for further study of the device 
+and achieved the goal of being able to analyze the firmware for 
+vulnerabilities. It was also possible to install a custom OS onto the 
+device and enable additional functionality not normally accessible to an
+ end user.</p>
+<p>The same approach was applied to the Sky Broadband device, where it was discovered that the device was a Broadcom <span class="caps">CPU</span> Linux based device. Additionally, a <span class="caps">SAGEM</span>
+ boot loader could be accessed, as well as an interactive captive 
+BusyBox menu. The menu required authentication; the default combination 
+of admin/sky was used. It was then possible to gain access to a full 
+interactive root shell just by entering <code>sh</code> at the prompt. 
+This allowed for the complete control of the device and further 
+exploration of its capabilities. The screen shots below illustrate the 
+interactive access achieved on both devices assessed.</p>
+<p><strong>Sky Broadband Router</strong><br>
+<img src="Hacking%20Embedded%20Devices_%20UART%20Consoles%20-%20MWR%20Labs_files/shell-1.jpg" style="display: inline-block; height: 400px; margin-right: 40px;" alt="shell-1"></p>
+<p><strong>Virgin Media SuperHub</strong><br>
+<img src="Hacking%20Embedded%20Devices_%20UART%20Consoles%20-%20MWR%20Labs_files/shell-2.jpg" style="display: inline-block; height: 400px" alt="shell-2"></p>
+          </div>
+          <div class="widerightdtlbottom"></div>
+        </div>
+        <div id="leftlinks">
+          <div class="leftlinkstop"></div>
+          <div class="leftlinkscontent">
+            <ul>
+  
+    <li><a href="http://labs.mwrinfosecurity.com/blog/">Latest</a></li>
+    
+      <li><a href="http://labs.mwrinfosecurity.com/blog/2012">2012</a></li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      <li><a href="http://labs.mwrinfosecurity.com/blog/2011">2011</a></li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      <li><a href="http://labs.mwrinfosecurity.com/blog/2010">2010</a></li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      <li><a href="http://labs.mwrinfosecurity.com/blog/2009">2009</a></li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      <li><a href="http://labs.mwrinfosecurity.com/blog/2008">2008</a></li>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+</ul>
+          </div>
+          <div class="leftlinksbottom"></div>	
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="footertop"></div>
+<div id="footer">
+  <p class="left">
+    Copyright © 2012 MWR InfoSecurity
+    <a href="http://labs.mwrinfosecurity.com/contact-us/">Contact Us</a>
+    <a href="http://labs.mwrinfosecurity.com/site-map/">Site Map</a>
+  </p>
+</div>
+<script src="Hacking%20Embedded%20Devices_%20UART%20Consoles%20-%20MWR%20Labs_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28163822-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+</script>
+      <div class="clear"></div>
+    </div>
+  
+
+
+</body></html>

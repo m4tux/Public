@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class=" mozilla id-section id-Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging-section w-1300 lt-1280 lt-1440 lt-1680 lt-1920 js  gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius no-cssreflections csstransforms csstransitions no-fontface domloaded" id="index-page"><head><title>Apple iOS Serial/USB Cable for Kernel Debugging</title><link rel="stylesheet" type="text/css" href="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/instructables.css"><link rel="stylesheet" type="text/css" href="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/instructabot.css"><link rel="stylesheet" type="text/css" href="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/imagenotes.css"><link rel="stylesheet" type="text/css" href="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/lightbox.css"><link rel="stylesheet" type="text/css" href="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/starbox.css"><link rel="stylesheet" type="text/css" href="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/swfupload.css">
+  
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" type="text/css" href="/static/css/ie.css"/>
+  <![endif]-->
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="imagetoolbar" content="no"><meta name="title" content="Apple iOS Serial/USB Cable for Kernel Debugging"><meta name="description" content="During the presentation iOS Kernel Exploitation at Blackhat/Syscan 2011, Stefan Esser provided some details about how to build an iDevice (iPad/iPod...">
+
+ 
+<!--
+  <PageMap>
+     <DataObject type="document">
+	
+        <Attribute name="author" value="hackerfantastic" /><Attribute name="published" value="9/12/12" /><Attribute name="category" value="technology" /><Attribute name="channel" value="cell-phones" />
+	 
+     </DataObject>
+     <DataObject type="thumbnail">
+        <Attribute name="src" value="http://cdn.instructables.com/FN4/UKVB/H703ZU49/FN4UKVBH703ZU49.SQUARE.jpg" />
+        <Attribute name="width" value="75" />
+        <Attribute name="height" value="75" />
+     </DataObject>
+  </PageMap>
+-->
+  
+
+
+<link rel="image_src" href="http://cdn.instructables.com/FN4/UKVB/H703ZU49/FN4UKVBH703ZU49.THUMB.jpg"><link rel="canonical" href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/"><link rel="search" type="application/opensearchdescription+xml" title="Instructables" href="http://www.instructables.com/openSearch.xml">
+
+
+
+	
+<script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/instruct_jq.js" type="text/javascript" class="" style=""></script><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/google_service.js" class="" type="text/javascript" style=""></script><script async="" src="data:text/javascript,%0A%20%20GS_googleAddAdSenseService%28%22ca-pub-1783560022203827%22%29%3B%0A%20%20GS_googleEnableAllServices%28%29%3B%0A" class="" type="text/javascript" style="">
+  GS_googleAddAdSenseService("ca-pub-1783560022203827");
+  GS_googleEnableAllServices();
+</script><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/google_ads.js"></script><script async="" src="data:text/javascript,%0A%20%20GA_googleAddAttr%28%22content%22%2C%20%22Step%20by%20St%22%29%3B%0A%20%20GA_googleAddAttr%28%22id%22%2C%20%22JWH7043NXH%22%29%3B%0A%20%20GA_googleAddAttr%28%22category%22%2C%20%22technology%22%29%3B%0A%20%20GA_googleAddAttr%28%22channel%22%2C%20%22cell-phone%22%29%3B%0A%20%20GA_googleAddAttr%28%22author%22%2C%20%22hackerfant%22%29%3B%0A%20%20GA_googleAddAttr%28%22step%22%2C%20%22intro%22%29%3B%0A%20%20GA_googleAddAttr%28%22featured%22%2C%20%22false%22%29%3B%0A%20%20GA_googleAddAttr%28%22status%22%2C%20%22PUBLISHED%22%29%3B%0A%20%20GA_googleAddAttr%28%22loggedin%22%2C%20%22true%22%29%3B%0A%20%20GA_googleAddAttr%28%22adtest%22%2C%20%22%22%29%3B%0A%0A%20%20%0A%20%20%20%20%20%20GA_googleAddAttr%28%22keyword%22%2C%20%22iphone%22%29%3B%0A%20%20%20%20%0A%20%20%20%20%20%20GA_googleAddAttr%28%22keyword%22%2C%20%22debugging%22%29%3B%0A%20%20%20%20%0A%20%20%20%20%20%20GA_googleAddAttr%28%22keyword%22%2C%20%22kernel%22%29%3B%0A%20%20%20%20%0A%20%20%20%20%20%20GA_googleAddAttr%28%22keyword%22%2C%20%22hacking%22%29%3B%0A%20%20%20%20%0A%20%20%20%20%20%20GA_googleAddAttr%28%22keyword%22%2C%20%22ios%22%29%3B%0A%20%20%20%20%0A%20%20%20%20%20%20GA_googleAddAttr%28%22keyword%22%2C%20%22ipad%22%29%3B%0A%20%20%20%20%0A%20%20%20%20%20%20GA_googleAddAttr%28%22keyword%22%2C%20%22ipod%22%29%3B%0A%20%20%20%20" class="" type="text/javascript" style="">
+  GA_googleAddAttr("content", "Step by St");
+  GA_googleAddAttr("id", "JWH7043NXH");
+  GA_googleAddAttr("category", "technology");
+  GA_googleAddAttr("channel", "cell-phone");
+  GA_googleAddAttr("author", "hackerfant");
+  GA_googleAddAttr("step", "intro");
+  GA_googleAddAttr("featured", "false");
+  GA_googleAddAttr("status", "PUBLISHED");
+  GA_googleAddAttr("loggedin", "true");
+  GA_googleAddAttr("adtest", "");
+
+  
+      GA_googleAddAttr("keyword", "iphone");
+    
+      GA_googleAddAttr("keyword", "debugging");
+    
+      GA_googleAddAttr("keyword", "kernel");
+    
+      GA_googleAddAttr("keyword", "hacking");
+    
+      GA_googleAddAttr("keyword", "ios");
+    
+      GA_googleAddAttr("keyword", "ipad");
+    
+      GA_googleAddAttr("keyword", "ipod");
+    </script><script async="" src="data:text/javascript,%0A%20%20GA_googleAddSlot%28%22ca-pub-1783560022203827%22%2C%20%22technology_leaderboard%22%29%3B%0A%20%20GA_googleAddSlot%28%22ca-pub-1783560022203827%22%2C%20%22technology_med_rectangle%22%29%3B%0A%20%20GA_googleAddSlot%28%22ca-pub-1783560022203827%22%2C%20%22_video%22%29%3B%0A%20%20GA_googleAddSlot%28%22ca-pub-1783560022203827%22%2C%20%22_house%22%29%3B%0A%0A%20%20" class="" type="text/javascript" style="">
+  GA_googleAddSlot("ca-pub-1783560022203827", "technology_leaderboard");
+  GA_googleAddSlot("ca-pub-1783560022203827", "technology_med_rectangle");
+  GA_googleAddSlot("ca-pub-1783560022203827", "_video");
+  GA_googleAddSlot("ca-pub-1783560022203827", "_house");
+
+  </script><script async="" src="data:text/javascript,%0A%20%20GA_googleUseSyncSRARendering%28%29%3B%0A%20%20GA_googleFetchAds%28%29%3B%0A" class="" type="text/javascript" style="">
+  GA_googleUseSyncSRARendering();
+  GA_googleFetchAds();
+</script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border-spacing:0;border:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yA/x/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/y6/x/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yA/x/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/y6/x/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yA/x/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/y6/x/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yR/x/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yR/x/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yR/x/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yR/x/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yD/x/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;left:-10000px;overflow:visible;position:absolute;top:-10000px;width:100%
+}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yc/x/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0 0, 0 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0 0, 0 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yJ/x/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{position:relative;display:-moz-inline-block;display:inline-block}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_iframe_widget span{position:relative;display:inline-block;vertical-align:text-bottom;text-align:justify}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yJ/x/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_button_simple,
+.fb_button_simple_rtl{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yH/x/eIpbnVKI9lR.png);background-repeat:no-repeat;cursor:pointer;outline:none;text-decoration:none}
+.fb_button_simple_rtl{background-position:right 0}
+.fb_button_simple .fb_button_text{margin:0 0 0 20px;padding-bottom:1px}
+.fb_button_simple_rtl .fb_button_text{margin:0 10px 0 0}
+a.fb_button_simple:hover .fb_button_text,
+a.fb_button_simple_rtl:hover .fb_button_text,
+.fb_button_simple:hover .fb_button_text,
+.fb_button_simple_rtl:hover .fb_button_text{text-decoration:underline}
+.fb_button,
+.fb_button_rtl{background:#29447e url(http://static.ak.fbcdn.net/rsrc.php/v2/yl/x/FGFbc80dUKj.png);background-repeat:no-repeat;cursor:pointer;display:inline-block;padding:0 0 0 1px;text-decoration:none;outline:none}
+.fb_button .fb_button_text,
+.fb_button_rtl .fb_button_text{background:#5f78ab url(http://static.ak.fbcdn.net/rsrc.php/v2/yl/x/FGFbc80dUKj.png);border-top:solid 1px #879ac0;border-bottom:solid 1px #1a356e;color:#fff;display:block;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-weight:bold;padding:2px 6px 3px 6px;margin:1px 1px 0 21px;text-shadow:none}
+a.fb_button,
+a.fb_button_rtl,
+.fb_button,
+.fb_button_rtl{text-decoration:none}
+a.fb_button:active .fb_button_text,
+a.fb_button_rtl:active .fb_button_text,
+.fb_button:active .fb_button_text,
+.fb_button_rtl:active .fb_button_text{border-bottom:solid 1px #29447e;border-top:solid 1px #45619d;background:#4f6aa3;text-shadow:none}
+.fb_button_xlarge,
+.fb_button_xlarge_rtl{background-position:left -60px;font-size:24px;line-height:30px}
+.fb_button_xlarge .fb_button_text{padding:3px 8px 3px 12px;margin-left:38px}
+a.fb_button_xlarge:active{background-position:left -99px}
+.fb_button_xlarge_rtl{background-position:right -268px}
+.fb_button_xlarge_rtl .fb_button_text{padding:3px 8px 3px 12px;margin-right:39px}
+a.fb_button_xlarge_rtl:active{background-position:right -307px}
+.fb_button_large,
+.fb_button_large_rtl{background-position:left -138px;font-size:13px;line-height:16px}
+.fb_button_large .fb_button_text{margin-left:24px;padding:2px 6px 4px 6px}
+a.fb_button_large:active{background-position:left -163px}
+.fb_button_large_rtl{background-position:right -346px}
+.fb_button_large_rtl .fb_button_text{margin-right:25px}
+a.fb_button_large_rtl:active{background-position:right -371px}
+.fb_button_medium,
+.fb_button_medium_rtl{background-position:left -188px;font-size:11px;line-height:14px}
+a.fb_button_medium:active{background-position:left -210px}
+.fb_button_medium_rtl{background-position:right -396px}
+.fb_button_text_rtl,
+.fb_button_medium_rtl .fb_button_text{padding:2px 6px 3px 6px;margin-right:22px}
+a.fb_button_medium_rtl:active{background-position:right -418px}
+.fb_button_small,
+.fb_button_small_rtl{background-position:left -232px;font-size:10px;line-height:10px}
+.fb_button_small .fb_button_text{padding:2px 6px 3px;margin-left:17px}
+a.fb_button_small:active,
+.fb_button_small:active{background-position:left -250px}
+.fb_button_small_rtl{background-position:right -440px}
+.fb_button_small_rtl .fb_button_text{padding:2px 6px;margin-right:18px}
+a.fb_button_small_rtl:active{background-position:right -458px}
+.fb_share_count_wrapper{position:relative;float:left}
+.fb_share_count{background:#b0b9ec none repeat scroll 0 0;color:#333;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;text-align:center}
+.fb_share_count_inner{background:#e8ebf2;display:block}
+.fb_share_count_right{margin-left:-1px;display:inline-block}
+.fb_share_count_right .fb_share_count_inner{border-top:solid 1px #e8ebf2;border-bottom:solid 1px #b0b9ec;margin:1px 1px 0 1px;font-size:10px;line-height:10px;padding:2px 6px 3px;font-weight:bold}
+.fb_share_count_top{display:block;letter-spacing:-1px;line-height:34px;margin-bottom:7px;font-size:22px;border:solid 1px #b0b9ec}
+.fb_share_count_nub_top{border:none;display:block;position:absolute;left:7px;top:35px;margin:0;padding:0;width:6px;height:7px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yP/x/bSOHtKbCGYI.png)}
+.fb_share_count_nub_right{border:none;display:inline-block;padding:0;width:5px;height:10px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/x/i_oIVTKMYsL.png);vertical-align:top;background-position:right 5px;z-index:10;left:2px;margin:0 2px 0 0;position:relative}
+.fb_share_no_count{display:none}
+.fb_share_size_Small .fb_share_count_right .fb_share_count_inner{font-size:10px}
+.fb_share_size_Medium .fb_share_count_right .fb_share_count_inner{font-size:11px;padding:2px 6px 3px;letter-spacing:-1px;line-height:14px}
+.fb_share_size_Large .fb_share_count_right .fb_share_count_inner{font-size:13px;line-height:16px;padding:2px 6px 4px;font-weight:normal;letter-spacing:-1px}
+.fb_share_count_hidden .fb_share_count_nub_top,
+.fb_share_count_hidden .fb_share_count_top,
+.fb_share_count_hidden .fb_share_count_nub_right,
+.fb_share_count_hidden .fb_share_count_right{visibility:hidden}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+/* @noflip */
+.fbpluginrecommendationsbarleft{left:10px}
+/* @noflip */
+.fbpluginrecommendationsbarright{right:10px}
+</style><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/osd.js" type="text/javascript"></script></head><body id="you"><div id="omni">
+
+  <!-- google_ad_section_start(weight=ignore) -->
+
+  <div class="header"><div class="nav"><div class="container"><a href="http://www.instructables.com/" class="robot"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/robot_technology.png" alt="Instructables"></a><a href="http://www.instructables.com/" class="logo"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/instructables-logo.png" alt="Instructables"></a><a href="http://www.instructables.com/" class="share-make explore-head">Share What You Make</a><div class="nav-container"><ul id="usernav"><li><a class="name" href="http://www.instructables.com/you/"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/user.gif" height="20" width="20"> You</a></li><li><a class="name" href="http://www.instructables.com/you/inbox">Inbox (0)</a></li><li id="shortcuts"><a href="http://www.instructables.com/you/customize?modify=CUSTOMIZE" id="shortcuttoggle">Shortcuts</a><ul id="shortcutlinks" class="shadow"><li><a href="http://www.instructables.com/you/customize?modify=CUSTOMIZE">Customize</a></li></ul></li><li class="logout"><a href="http://www.instructables.com/account/logout">Logout</a></li></ul><ul id="tabnav" class="tabnav">
+<li><a href="http://www.instructables.com/group/techshop"><img style="margin-top:-10px" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FE2RLZ3H6MF3R7J.png" alt="TechShop"></a></li><a href="http://www.instructables.com/group/techshop">
+</a><li><a href="http://www.instructables.com/group/techshop"></a><a href="http://www.instructables.com/group/123d/"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FTY0WEEH4AFZNDR.png" alt="123d" style="position:relative; top:-10px"></a></li>
+<li><a href="http://www.instructables.com/radioshack/"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F1GAODLH58P2XDV.png" alt="Radio Shack Audio"></a></li>
+</ul><div id="searchbar" class="searchbar"><form action="/pages/search/search.jsp" method="get" id="searchbarform"><div class="searchformcontainer"><input name="cx" value="partner-pub-1783560022203827:npr2q7v5m6t" type="hidden"><input name="cof" value="FORID:11" type="hidden"><input name="ie" value="ISO-8859-1" type="hidden"><input style="background-image: url(&quot;/static/img/google_custom_search_watermark.gif&quot;);" class="barinput" name="q" id="q" type="text"></div></form><a href="#" onclick="document.getElementById('searchbarform').submit(); return false;" class="searchbutton"><span>Go</span></a></div></div></div></div><link href="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/css.css" rel="stylesheet" type="text/css"><div class="categories"><div class="container"><ul><li class="header-button" id="create"><a href="http://www.instructables.com/about/submit.jsp"><span>Create</span></a></li><li class="header-button" id="explore"><a href="http://www.instructables.com/tag/type-id/"><span>Explore</span></a></li><li class="header-button" id="contests"><a href="http://www.instructables.com/contest/"><span>Contests</span></a></li><li class="header-button" id="more"><a href="http://www.instructables.com/community/"><span>More</span></a></li></ul></div></div><div class="header-menu" id="create-menu"><div class="slick-column explore-section"><p class="explore-head">3 Simple Ways to<br> Share What You Make</p><p>With Instructables you can share what you make with the world — and tap into an ever-growing community of creative experts. </p><div class="share"><p class="explore-head">Other ways to share:&nbsp;&nbsp;</p><ul><li class="tooltipByID ttid_share-ask"><a href="http://www.instructables.com/answers/ask"><span>Ask a Question</span></a><div class="sharetip" id="share-ask-tip"><strong>What is a Question?</strong><br>
+                Questions are a super-easy way to get answers from the 
+Instructables community. Learn how to build, do, or make anything! You 
+just ask a question and the community will provide answers. You choose 
+the best answer!
+                </div></li><li class="tooltipByID ttid_share-forum"><a href="http://www.instructables.com/edit/new?type=forumTopic"><span>Forum Topic</span></a><div class="sharetip" id="share-forum-tip"><strong>Submit a Forum Topic!</strong><br>The
+ forums are the place to ask questions, share a cool project from 
+another site, find collaborators for your latest project, or discuss 
+anything of interest to the Instructables community. </div></li><li class="tooltipByID ttid_share-guide"><a href="http://www.instructables.com/edit/new?type=guide"><span>Guides</span></a><div class="sharetip" id="share-guide-tip"><strong>What is a guide?</strong><br>
+                Guides are a collection of Instructables, such as '5 Minute Recipes' or 'Father's Day Gifts'.
+                Start creating your own now!</div></li><li class="tooltipByID ttid_share-group"><a href="http://www.instructables.com/edit/new?type=group"><span>Group</span></a><div class="sharetip" id="share-group-tip"><strong>Start a new group</strong></div></li><li class="tooltipByID ttid_share-upload"><a href="http://www.instructables.com/upload"><span>Upload Images</span></a><div class="sharetip" id="share-upload-tip"><strong>Do you have a lot of images to upload?</strong><br>
+                If you prefer to upload your images before you submit, then this is for you.
+                Remember to tag them so they will be easier for you to find when you are viewing your library.
+                You can also upload images when you are creating your posts.
+                </div></li><li class="tooltipByID ttid_share-bug"><a href="http://www.instructables.com/community?categoryGroup=help&amp;category=bugs"><span>Bug Report</span></a><div class="sharetip" id="share-bug-tip"><strong>Did you find a bug or have a suggestion for us?</strong><br>
+                We appreciate all the help our users give us in tracking down bugs and making the site better for everyone.
+                </div></li></ul></div></div><div class="slick-column"><div class="magic-box"><div class="magic-box-top"></div><div class="magic-box-content"><span class="box-icon" id="made-it-icon"><span>Photos</span></span><span class="explore-head">Photos</span><p>Share one or more photos of a project, recipe, or whatever you've made, quickly and easily.</p><div class="magic-actions"><p><a class="big-button" href="http://www.instructables.com/id/edit?type=photos">Get Started</a></p><p class="itips"><a href="#" onclick="javascript:window.open('/about/photos_tips.jsp','stepbystep','status=yes,scrollbars=yes,resizable=yes,width=750,height=500');return false;">Learn more &amp; Get Tips</a></p></div></div><div class="magic-box-bottom"></div></div></div><div class="slick-column"><div class="magic-box"><div class="magic-box-top"></div><div class="magic-box-content"><span class="box-icon" id="step-by-icon"><span>Step by Step</span></span><span class="explore-head">Step-By-Step</span><p>Share your step-by-step photos with text instructions of what you made so others can do it too!</p><div class="magic-actions"><p><a class="big-button" href="http://www.instructables.com/id/edit">Get Started</a></p><p class="stips"><a href="#" onclick="javascript:window.open('/about/stepbystep_tips.jsp','photos','status=yes,scrollbars=yes,resizable=yes,width=750,height=500');return false;">Learn more &amp; Get Tips</a></p></div></div><div class="magic-box-bottom"></div></div></div><div class="slick-column"><div class="magic-box"><div class="magic-box-top"></div><div class="magic-box-content"><span class="box-icon" id="video-icon"><span>Video</span></span><span class="explore-head">Video</span><p>Share your how-to video. You'll need your embed code from a video site such as YouTube.</p><div class="magic-actions"><p class="vtips"><a class="big-button" href="http://www.instructables.com/id/edit/?type=video">Get Started</a></p><p class="vtips"><a href="#" onclick="javascript:window.open('/about/video_tips.jsp','video','status=yes,scrollbars=yes,resizable=yes,width=750,height=500');return false;">Learn more &amp; Get Tips</a></p></div></div><div class="magic-box-bottom"></div></div></div></div><div class="header-menu" id="explore-menu"><img class="menu-loading" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/lb_loading.gif"></div><div class="header-menu" id="contests-menu"><img class="menu-loading" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/lb_loading.gif"></div><div class="header-menu" id="more-menu"><img class="menu-loading" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/lb_loading.gif"></div><div class="channels"><div class="container" id="channelnavcontainer"><ul class="clearfix"><li class="selected"><h1><a href="http://www.instructables.com/tag/type-id/category-technology/channel-cell-phones/"><span>Cell Phones</span></a></h1></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-assistive-technology/"><span>Assistive Tech</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-audio/"><span>Audio</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-el-wire/"><span>El Wire</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-lasers/"><span>Lasers</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-leds/"><span>LEDs</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-speakers/"><span>Speakers</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-steampunk/"><span>Steampunk</span></a></li><li id="see-more"><a href="http://www.instructables.com/tag/type-id/category-technology/" id="seemore"><span>See More »</span></a></li><li id="see-less"><a href="http://www.instructables.com/tag/type-id/category-technology/" id="seemore"><span>See Less «</span></a></li></ul><ul class="clearfix" id="see-more-channels"><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-3D-Printing/"><span>3D Printing</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-apple/"><span>Apple</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-arduino/"><span>Arduino</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-art/"><span>Art</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-clocks/"><span>Clocks</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-cnc/"><span>CNC</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-computers/"><span>Computers</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-electronics/"><span>Electronics</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-gadgets/"><span>Gadgets</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-kits/"><span>Kits</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-laptops/"><span>Laptops</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-linux/"><span>Linux</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-microcontrollers/"><span>Microcontrollers</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-microsoft/"><span>Microsoft</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-photography/"><span>Photography</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-remote-control/"><span>Remote Control</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-reuse/"><span>Reuse</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-robots/"><span>Robots</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-science/"><span>Science</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-sensors/"><span>Sensors</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-soft-circuits/"><span>Soft Circuits</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-software/"><span>Software</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-soldering/"><span>Soldering</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-tools/"><span>Tools</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-usb/"><span>USB</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-websites/"><span>Websites</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-wireless/"><span>Wireless</span></a></li></ul></div></div></div><div class="aspace"><div class="container"><div id="aplace">
+          
+            <script async="" src="data:text/javascript,%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20%28typeof%20GA_googleFillSlot%20%21%3D%20%22undefined%22%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20GA_googleFillSlot%28%22technology_leaderboard%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20" class="" type="text/javascript" style="">
+            if (typeof GA_googleFillSlot != "undefined") {
+              GA_googleFillSlot("technology_leaderboard");
+            }
+            </script><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/ads.js"></script><div id="google_ads_div_technology_leaderboard_ad_wrapper">
+<div style="display:inline-block;" id="google_ads_div_technology_leaderboard_ad_container">
+<ins style="width: 970px; height: 200px; display: inline-table; position: relative; border: 0px none;"><ins style="width: 970px; height: 200px; display: block; position: relative; border: 0px none;"><iframe style="border: 0px none; position: absolute; top: 0px; left: 0px;" marginheight="0" marginwidth="0" name="google_ads_iframe_technology_leaderboard" id="google_ads_iframe_technology_leaderboard" frameborder="0" height="200" scrolling="no" width="970"></iframe></ins></ins></div>
+</div>
+<script async="" src="data:text/javascript,GA_googleCreateDomIframe%28%22google_ads_div_technology_leaderboard_ad_container%22%20%2C%22technology_leaderboard%22%29%3B">GA_googleCreateDomIframe("google_ads_div_technology_leaderboard_ad_container" ,"technology_leaderboard");</script>
+          
+          </div></div></div>
+
+  <!-- google_ad_section_end -->
+
+  <div id="feedback" class="feedback" style="display:none;"></div><div id="container">
+      
+               <script async="" src="data:text/javascript,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28typeof%20GA_googleFillSlot%20%21%3D%20%22undefined%22%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20GA_googleFillSlot%28%22_video%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20" class="" type="text/javascript" style="">
+               if (typeof GA_googleFillSlot != "undefined") {
+               GA_googleFillSlot("_video");
+               }
+               </script>
+      
+    <div id="instructable-title"><div id="top-actions"><a name="favorite"></a><a name="flagging"></a><div id="actionLinksTop" class="fr"><span class="tooltipByID ttid_PDF"><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/?download=pdf"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/pdf-icon.png" alt="Print">Print PDF</a></span><span id="favoriterElement0"><a href="#"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/fav-icon.png" alt="Make this a favorite!">Favorite</a></span><script async="" src="data:text/javascript,%0A%20%20%20%20%20%20new%20Favoriter%28%24%28%22%23%22%20%2B%20%22favoriterElement0%22%29%2C%0A%20%20%20%20%20%20%20%20%7B%20entryId%3A%27E5D5HJWH7043NXH%27%2C%0A%20%20%20%20%20%20%20%20%20%20isFavorite%3Afalse%2CalreadyFavoritedLink%3Atrue%2CnotFavoritedLink%3Atrue%0A%20%20%20%20%20%20%7D%29%3B%0A%20%20" class="" type="text/javascript" style="">
+      new Favoriter($("#" + "favoriterElement0"),
+        { entryId:'E5D5HJWH7043NXH',
+          isFavorite:false,alreadyFavoritedLink:true,notFavoritedLink:true
+      });
+  </script><a href="mailto:?subject=Apple%20iOS%20Serial/USB%20Cable%20for%20Kernel%20Debugging&amp;body=http%3A%2F%2Fwww.instructables.com%2Fid%2FApple-iOS-SerialUSB-Cable-for-Kernel-Debugging%2F" title="Send this Instructable to a friend"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/email-icon.png" alt="Send this to a friend">Email</a>
+
+
+    <a href="#" onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.instructables.com%2Fid%2FApple-iOS-SerialUSB-Cable-for-Kernel-Debugging%2F&amp;t=Apple+iOS+Serial%2FUSB+Cable+for+Kernel+Debugging','facebook-halloween','status=yes,scrollbars=yes,resizable=yes,width=650,height=450'); return false;">
+    <img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/fb-icon.png" alt="Facebook">&nbsp;</a>
+
+    <a href="#" onclick="javascript:window.open('http://twitter.com/home/?status=Apple+iOS+Serial%2FUSB+Cable+for+Kernel+Debugging%20http%3A%2F%2Fwww.instructables.com%2Fid%2FApple-iOS-SerialUSB-Cable-for-Kernel-Debugging%2F','twitter','status=yes,scrollbars=yes,resizable=yes,width=800,height=600'); return false;">
+    <img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/twitter-icon.png" alt="Twitter">&nbsp;</a>
+
+
+    <a href="#" onclick="$('#flagMenu').toggle(); return false;" class="actions_top_a_3"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/icon_flag2.gif" alt="Flag">Flag
+  </a><div id="flagMenu" data-entry-id="E5D5HJWH7043NXH" class="actions_top_div_4" style="display:none;"><a href="#" data-flag-as="wrong-category">Wrong Category</a><br><a href="#" data-flag-as="inappropriate">Inappropriate</a><br><a href="#" data-flag-as="incomplete">Incomplete</a><br><a href="#" data-flag-as="spam">Spam</a><span class="msg-confirm" style="display:none;">Is
+ this inappropriate, spam, advertising, or not suited for Instructables?
+ Flagging helps the Instructables team find and remove things that 
+shouldn't be here. Click 'OK' to flag this or 'Cancel' to exit</span><span class="msg-success" style="display:none;">The Instructables community will review this ASAP.</span></div></div></div><h1 class="fn">Apple iOS Serial/USB Cable for Kernel Debugging</h1></div><div id="steps-container" class="stepsContainer steps clearfix"><div><img class="selectedStep" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/allsteps.gif" alt=""></div><a name="pdflogin"></a><div class="tooltipByID ttid_PDF"><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/?download=pdf"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/PDF.gif" alt=""></a></div><div class="tooltipByID ttid_S5ZF2DRH7043NXG"><a href="#step0"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FN4UKVBH703ZU49_002.jpg" alt=""></a></div><div class="tooltipByID ttid_S9B979CH7043NXI"><a href="#step1"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F755YGDH703TKTB.jpg" alt=""></a></div><div class="tooltipByID ttid_SJAHVROH7043NZS"><a href="#step2"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FPGASF5H703ZU5J.jpg" alt=""></a></div><div class="tooltipByID ttid_S0ULJAZH7043O0J"><a href="#step3"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FCDATMRH703ZU62.jpg" alt=""></a></div><div class="tooltipByID ttid_S2Z8SBXH7043O12"><a href="#step4"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FUGLI2MH7035YRN.jpg" alt=""></a></div><div class="tooltipByID ttid_SR7GIB5H7043O1K"><a href="#step5"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FB0JBQBH703H0HT.jpg" alt=""></a></div><div class="tooltipByID ttid_SII8LX5H7043O27"><a href="#step6"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FAKIK2RH703ZU6P_002.jpg" alt=""></a></div><div class="tooltipByID ttid_SDC6XJ0H7043O2Q"><a href="#step7"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F9W258WH703TKTP_002.jpg" alt=""></a></div></div><div id="main_content"><div id="authorBio" class="clearfix"><div class="following"><div class="bubble">0<br><span>Followers</span><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/probox-bubble-point.png" class="bubble-point"></div><input class="big-button" value="Follow" id="subscribe" onclick="subscribe('USER','MDW0D7MH7043NXF',___saveJQFromPrototype('#subscribe').get(0));" type="button"></div><div id="bio-statbox"><a style="background-color: rgb(31, 139, 201);" href="http://www.instructables.com/member/hackerfantastic/" title="view hackerfantastic's profile" class="authorImg memberstats id-hackerfantastic"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/user.gif"><div class="count">1</div></a></div><div class="byline"><span class="pro_author_ajax_span_0">Author:</span><a href="http://www.instructables.com/member/hackerfantastic/" title="view hackerfantastic's profile">hackerfantastic</a></div><div class="text cropped"><a href="http://www.instructables.com/you/settings">Visit your profile to edit!</a></div></div>
+  <!-- google_ad_section_start -->
+  <div class="stepdescription"><div class="step-bucket"><div class="photoset" data-entry-id="S5ZF2DRH7043NXG" data-entry-url="/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" id="photoset-S5ZF2DRH7043NXG"><div class="row" style="width:630px;text-align:center;"><a id="photoset-link-FWMXAOXH7043O42-0" class="photo-link" rel="photoset-gallery-S5ZF2DRH7043NXG" data-notes-lookup-id="FN4UKVBH703ZU49-0" data-href="/image/FN4UKVBH703ZU49" data-fancybox-href="http://cdn.instructables.com/FN4/UKVB/H703ZU49/FN4UKVBH703ZU49.LARGE.jpg" href="http://cdn.instructables.com/FN4/UKVB/H703ZU49/FN4UKVBH703ZU49.LARGE.jpg"><img class="photo id_FN4UKVBH703ZU49" data-notes-lookup-id="FN4UKVBH703ZU49-0" alt="IMG_1142.JPG" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FN4UKVBH703ZU49.jpg" style="width:630px;"></a></div></div><div class="txt">During
+ the presentation "iOS Kernel Exploitation" at Blackhat/Syscan 2011, 
+Stefan Esser provided some details about how to build an iDevice 
+(iPad/iPod/iPhone) cable that could be used to enable serial console 
+functionality and kernel debugging capabilities within an iOS device. 
+The following instructions will show the complete steps needed to build 
+this cable as some of the information within the publicly available 
+slides was found to be incomplete. You will need the following materials
+ to build this cable:<br>
+<br>
+<em>* Soldering Iron, Solder, Wire, Wire Cutters &amp; Wire Strippers.<br>
+* 2x mini-USB-B to USB-A cables<br>
+* FT232RL USB to Serial break-out board<br>
+* PodGizmo PodBreakout (v1.5 used here)<br>
+* 470k (or near enough to 500k) resistor<br>
+* An old iPhone or similar for testing purposes.</em><br>
+<br>
+Please be aware that this is not an Apple approved accessory and 
+connecting it to your IDevice is unsupported and you may damage the 
+iDevice. I cannot be held responsible for anything you choose to do with
+ your equipment or indeed this cable!<br>
+</div><div id="files"><a name="files"></a></div></div><div class="step-bucket"><h2><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step1/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" name="step1"><span class="stepLabel">Step 1</span><span class="stepTitle">Apple iOS Serial/USB Cable for Kernel Debugging</span></a></h2><div class="photoset" data-entry-id="S9B979CH7043NXI" data-entry-url="/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step1/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" id="photoset-S9B979CH7043NXI"><div class="row" style="width:630px;text-align:center;"><a id="photoset-link-FJA4WS8H7043O0G-0" class="photo-link" rel="photoset-gallery-S9B979CH7043NXI" data-notes-lookup-id="F755YGDH703TKTB-0" data-href="/image/F755YGDH703TKTB" data-fancybox-href="http://cdn.instructables.com/F75/5YGD/H703TKTB/F755YGDH703TKTB.LARGE.jpg" href="http://cdn.instructables.com/F75/5YGD/H703TKTB/F755YGDH703TKTB.LARGE.jpg"><img class="photo id_F755YGDH703TKTB" data-notes-lookup-id="F755YGDH703TKTB-0" alt="IMG_1146.jpg" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F755YGDH703TKTB_002.jpg" style="width:630px;"></a></div></div><div class="txt">Solder
+ pieces of wire to pin 12, pin 13 and pin 18 of the PodBreakout v1.5 
+board. You may wish to construct the PodBreakout plastic housing AFTER 
+construction (despite what is shown here) to ease soldering to the PCB. 
+With the three short pieces of wire attach (3cm or so) solder the 470k 
+resistor to pin 21. You will also need to solder a piece of wire of 
+similar length to pin 1 and the last leg of the resistor to the same 
+location.</div><div id="files"><a name="files"></a></div></div><div class="step-bucket"><h2><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step2/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" name="step2"><span class="stepLabel">Step 2</span><span class="stepTitle">Apple iOS Serial/USB Cable for Kernel Debugging</span></a></h2><div class="photoset" data-entry-id="SJAHVROH7043NZS" data-entry-url="/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step2/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" id="photoset-SJAHVROH7043NZS"><div class="row" style="width:630px;text-align:center;"><a id="photoset-link-F1HHQK2H7043O0L-0" class="photo-link" rel="photoset-gallery-SJAHVROH7043NZS" data-notes-lookup-id="FPGASF5H703ZU5J-0" data-href="/image/FPGASF5H703ZU5J" data-fancybox-href="http://cdn.instructables.com/FPG/ASF5/H703ZU5J/FPGASF5H703ZU5J.LARGE.jpg" href="http://cdn.instructables.com/FPG/ASF5/H703ZU5J/FPGASF5H703ZU5J.LARGE.jpg"><img class="photo id_FPGASF5H703ZU5J" data-notes-lookup-id="FPGASF5H703ZU5J-0" alt="IMG_1145.jpg" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FPGASF5H703ZU5J_002.jpg" style="width:630px;"></a></div></div><div class="txt">You
+ should now have four pieces of wire and a resistor soldered to the 
+PodBreakout PCB. You will now solder these four pieces of wire to the 
+FT232RL break-out board which will be used to provide serial 
+capabilities to the UART. The resistor between pin 1 and pin 21 of the 
+PodBreakout is an "accessory" indicator, this indicates to the connected
+ iPhone/iPad that serial connectivity is to be enabled by placing 
+resistance between the two pins.<br>
+</div><div id="files"><a name="files"></a></div></div><div class="step-bucket"><h2><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step3/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" name="step3"><span class="stepLabel">Step 3</span><span class="stepTitle">Apple iOS Serial/USB Cable for Kernel Debugging</span></a></h2><div class="photoset" data-entry-id="S0ULJAZH7043O0J" data-entry-url="/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step3/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" id="photoset-S0ULJAZH7043O0J"><div class="row" style="width:630px;text-align:center;"><a id="photoset-link-FMJGPVBH7043O14-0" class="photo-link" rel="photoset-gallery-S0ULJAZH7043O0J" data-notes-lookup-id="FCDATMRH703ZU62-0" data-href="/image/FCDATMRH703ZU62" data-fancybox-href="http://cdn.instructables.com/FCD/ATMR/H703ZU62/FCDATMRH703ZU62.LARGE.jpg" href="http://cdn.instructables.com/FCD/ATMR/H703ZU62/FCDATMRH703ZU62.LARGE.jpg"><img class="photo id_FCDATMRH703ZU62" data-notes-lookup-id="FCDATMRH703ZU62-0" alt="IMG_1149.jpg" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FCDATMRH703ZU62_002.jpg" style="height:630px;"></a></div></div><div class="txt">Now
+ connect the pins on the FT232RL to the PodBreakout as in the picture. 
+Pin 1 from the PodBreakout (PB) goes to GND on the FT232RL, Pin 12 on PB
+ to RX, Pin 13 to TX and finally 3.3V VCC to Pin 18. You should now have
+ a functioning serial (only!) cable, this can be used to interact with 
+the UART and access serial console functionality on an iDevice. You can 
+go ahead and test it now if you would like to before you solder the USB 
+functionality.<br>
+</div><div id="files"><a name="files"></a></div></div><div class="step-bucket"><h2><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step4/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" name="step4"><span class="stepLabel">Step 4</span><span class="stepTitle">Apple iOS Serial/USB Cable for Kernel Debugging</span></a></h2><div class="photoset" data-entry-id="S2Z8SBXH7043O12" data-entry-url="/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step4/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" id="photoset-S2Z8SBXH7043O12"><div class="row" style="width:630px;text-align:center;"><a id="photoset-link-F0NE9VCH7043O1M-0" class="photo-link" rel="photoset-gallery-S2Z8SBXH7043O12" data-notes-lookup-id="FUGLI2MH7035YRN-0" data-href="/image/FUGLI2MH7035YRN" data-fancybox-href="/files/deriv/FUG/LI2M/H7035YRN/FUGLI2MH7035YRN.LARGE.jpg" href="http://www.instructables.com/files/deriv/FUG/LI2M/H7035YRN/FUGLI2MH7035YRN.LARGE.jpg"><img class="photo id_FUGLI2MH7035YRN" data-notes-lookup-id="FUGLI2MH7035YRN-0" alt="IMG_1150.JPG" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FUGLI2MH7035YRN_002.jpg" style="width:630px;"></a></div></div><div class="txt">A
+ great way to test the serial cable functionality is to use an iPhone 3G
+ or similar that has OpeniBoot installed and optionally an alternative 
+OS such as iDroid. By connecting with a terminal program such as minicom
+ to the FT232RL device (e.g. /dev/ttyUSB0) and setting 115200 8N1 and no
+ hardware or software flow control, you could see the following 
+information during OpeniBoot which is not normally visible to users who 
+utilize the OiBC USB console. This helps show that the serial cable is 
+functioning as expected and we can now move on to soldering the USB 
+cable.</div><div id="files"><a name="files"></a></div></div><div class="step-bucket"><h2><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step5/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" name="step5"><span class="stepLabel">Step 5</span><span class="stepTitle">Apple iOS Serial/USB Cable for Kernel Debugging</span></a></h2><div class="photoset" data-entry-id="SR7GIB5H7043O1K" data-entry-url="/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step5/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" id="photoset-SR7GIB5H7043O1K"><div class="row" style="width:630px;text-align:center;"><a id="photoset-link-F51ABPTH7043O29-0" class="photo-link" rel="photoset-gallery-SR7GIB5H7043O1K" data-notes-lookup-id="FB0JBQBH703H0HT-0" data-href="/image/FB0JBQBH703H0HT" data-fancybox-href="/files/deriv/FB0/JBQB/H703H0HT/FB0JBQBH703H0HT.LARGE.jpg" href="http://www.instructables.com/files/deriv/FB0/JBQB/H703H0HT/FB0JBQBH703H0HT.LARGE.jpg"><img class="photo id_FB0JBQBH703H0HT" data-notes-lookup-id="FB0JBQBH703H0HT-0" alt="IMG_1153.jpg" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FB0JBQBH703H0HT_002.jpg" style="height:630px;"></a></div></div><div class="txt">Take
+ a USB cable and cut off the mini USB connector (so you can still 
+connect it to your computer at the other end!). Strip the wire back 
+about 1 to 2 inches so you reveal four wires, these should be green, 
+red, white and black. Strip a small amount of wire off the end of the 
+black cable. You will now solder these wires to the PodBreakout board. </div><div id="files"><a name="files"></a></div></div><div class="step-bucket"><h2><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step6/null/" name="step6"><span class="stepLabel">Step 6</span><span class="stepTitle"></span></a></h2><div class="photoset" data-entry-id="SII8LX5H7043O27" data-entry-url="/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step6/null/" id="photoset-SII8LX5H7043O27"><div class="row" style="width:630px;text-align:center;"><a id="photoset-link-F02JSUDH7043O30-0" class="photo-link" rel="photoset-gallery-SII8LX5H7043O27" data-notes-lookup-id="FAKIK2RH703ZU6P-0" data-href="/image/FAKIK2RH703ZU6P" data-fancybox-href="/files/deriv/FAK/IK2R/H703ZU6P/FAKIK2RH703ZU6P.LARGE.jpg" href="http://www.instructables.com/files/deriv/FAK/IK2R/H703ZU6P/FAKIK2RH703ZU6P.LARGE.jpg"><img class="photo id_FAKIK2RH703ZU6P" data-notes-lookup-id="FAKIK2RH703ZU6P-0" alt="IMG_1156.jpg" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FAKIK2RH703ZU6P.jpg" style="height:630px;"></a></div></div><div class="txt">Solder
+ the black wire to pin 2 on PB. After you will need to strip the 
+remaining three wires, cutting a little of the excess wire away and 
+solder red wire to pin 23, white wire to pin 25 and finally the green 
+wire to pin 27. These are the USB GND, USB VCC, USB- and USB+ pins of 
+the iDevice and used in a typical iPhone/iPad cable for USB operation.</div><div id="files"><a name="files"></a></div></div><div class="step-bucket"><h2><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step7/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" name="step7"><span class="stepLabel">Step 7</span><span class="stepTitle">Apple iOS Serial/USB Cable for Kernel Debugging</span></a></h2><div class="photoset" data-entry-id="SDC6XJ0H7043O2Q" data-entry-url="/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/step7/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/" id="photoset-SDC6XJ0H7043O2Q"><div class="row" style="width:630px;text-align:center;"><a id="photoset-link-FHH1IA6H7043O34-0" class="photo-link" rel="photoset-gallery-SDC6XJ0H7043O2Q" data-notes-lookup-id="F9W258WH703TKTP-0" data-href="/image/F9W258WH703TKTP" data-fancybox-href="/files/deriv/F9W/258W/H703TKTP/F9W258WH703TKTP.LARGE.jpg" href="http://www.instructables.com/files/deriv/F9W/258W/H703TKTP/F9W258WH703TKTP.LARGE.jpg"><img class="photo id_F9W258WH703TKTP" data-notes-lookup-id="F9W258WH703TKTP-0" alt="IMG_1154.JPG" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F9W258WH703TKTP.jpg" style="width:630px;"></a></div></div><div class="txt">You
+ can now use the RS232 and USB functionality simultaneously with your 
+iOS device. To test this functionality you could use an iPhone 3G or 
+similar with OpeniBoot installed, just like we used with the serial 
+cable, only this time you could use both the USB interface client OiBC 
+and a serial terminal program at the same time. The example picture 
+shows this, using OiBC on the left of the screen, and a serial 
+connection within a virtual machine on the right to show that different 
+cables are being used for the terminal output. A side benefit of this 
+setup is that the cable will also charge your iDevice and can be used 
+with standard iTunes functionality. It is a widely accepted fact that 
+you may also be able to use this setup to perform IOS Kernel Debugging 
+by triggering vulnerabilities via USB-SSH and debugging them via the 
+Serial output! Hope you enjoy your new IOS cable and happy hacking!<br>
+</div><div id="files"><a name="files"></a></div></div></div>
+   <!-- google_ad_section_end -->
+
+  <!-- google_ad_section_start(weight=ignore) -->
+
+  <a id="DISCUSS" name="DISCUSS"></a><div class="comments" id="comments"><a name="comments"></a><div id="CommentSpinner" class="progress-indicator"></div><div id="ajax_newcomment_placeholder"></div><a name="POST" id="POST"></a><table class="comments_table_5"><tbody><tr valign="top"><td><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/comment.gif" alt=""></td><td class="comments_td_6"><div id="NewCommentLINK" class="comment-bucket"><a class="stepLabel new-comment login-required" href="#" onclick="return false;">
+                    Add Comment
+                  </a></div></td></tr></tbody></table></div>
+
+  <!-- google_ad_section_end -->
+
+</div><div id="sidebar"><div id="author-options" class="editForms newrightbar_div_3"><table border="0"><tbody><tr><td><h3>Author Options:&nbsp;&nbsp;</h3></td><td><a class="button newrightbar_a_4" href="http://www.instructables.com/id/edit/?instructableId=E5D5HJWH7043NXH">Edit</a></td><td></td></tr></tbody></table><div class="adder"><p class="groupsmsg"><a href="#" onclick="$( '#ContestAdder' ).toggle('fast'); return false;" class="bright">+ Add to Contest(s)</a></p><div id="ContestAdder" class="clearfix contestAdder_div_0" style="display: none"><table><tbody><tr><td><a href="javascript:addToContest('/contest/cupcake2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FSLJY51H6S4FVTO.jpg" alt="Cupcake Contest "></a></td><td><a href="javascript:addToContest('/contest/cupcake2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Cupcake Contest </a></td></tr><tr><td><a href="javascript:addToContest('/contest/woodcare/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F2J5A28H5TUC3YT.jpg" alt="Cabot Woodcare Contest"></a></td><td><a href="javascript:addToContest('/contest/woodcare/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Cabot Woodcare Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/halloween2012decorations/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FZHNF6MH6I6WGSD.jpg" alt="Halloween Decorations Contest"></a></td><td><a href="javascript:addToContest('/contest/halloween2012decorations/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Halloween Decorations Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/hurricanelasers/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FMAJJDUH3HCLD1V.jpg" alt="Hurricane Lasers Contest"></a></td><td><a href="javascript:addToContest('/contest/hurricanelasers/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Hurricane Lasers Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/halloween2012food/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FH1NE9XH673AAFL.jpg" alt="Halloween Food Contest"></a></td><td><a href="javascript:addToContest('/contest/halloween2012food/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Halloween Food Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/hackit2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FJRB1D8H673DPOE.jpg" alt="Hack It! Contest"></a></td><td><a href="javascript:addToContest('/contest/hackit2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Hack It! Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/audio/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FVZOUMJH703Q596.jpg" alt="DIY Audio"></a></td><td><a href="javascript:addToContest('/contest/audio/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">DIY Audio</a></td></tr><tr><td><a href="javascript:addToContest('/contest/makeitstick2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F7DS0PCH6R3CQA7.jpg" alt="3rd Annual Make It Stick Contest"></a></td><td><a href="javascript:addToContest('/contest/makeitstick2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">3rd Annual Make It Stick Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/handsonlearning/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FD6RH73H5TUC384.jpg" alt="Hands-on Learning Contest"></a></td><td><a href="javascript:addToContest('/contest/handsonlearning/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Hands-on Learning Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/halloween2012props/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FQLW11UH6DWQBTE.jpg" alt="Halloween Props  Contest"></a></td><td><a href="javascript:addToContest('/contest/halloween2012props/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Halloween Props  Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/halloween2012epiccostumes/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F48DCF8H6FC1MAS.jpg" alt="Halloween Epic Costumes Contest"></a></td><td><a href="javascript:addToContest('/contest/halloween2012epiccostumes/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Halloween Epic Costumes Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/officesupplies2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FTESCB2H5EDU6D2.jpg" alt="Office Supplies Contest"></a></td><td><a href="javascript:addToContest('/contest/officesupplies2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Office Supplies Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/halloween2012easycostumes/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FYQ3FOHH6DWQBM1.jpg" alt="Halloween Easy Costumes Contest"></a></td><td><a href="javascript:addToContest('/contest/halloween2012easycostumes/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Halloween Easy Costumes Contest</a></td></tr><tr><td><a href="javascript:addToContest('/contest/fixit2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F9QILYMH5405OD5.jpg" alt="Fix &amp; Improve It Contest"></a></td><td><a href="javascript:addToContest('/contest/fixit2012/?show=ENTER','E5D5HJWH7043NXH')" class="bold bright">Fix &amp; Improve It Contest</a></td></tr></tbody></table><div class="contestAdder_div_1" style="display: none"><form action="" method="post" id="AddToContestForm"><input name="posted" value="1347486989732" type="hidden"><input id="approveId" name="approveId" value="" type="hidden"></form></div><div class="clearfix"></div></div></div><a href="#" onclick="$('#authorOptions').toggle(); return false;">Change Keywords, Category(s), License</a><div id="authorOptions" class="newrightbar_div_8" style="display: none"><table class="newrightbar_table_9" border="0"><tbody><tr><td valign="top"><div class="sidebarBox"><div class="sidebarBoxHeader">Keywords</div><div class="sidebarBoxContent" id="KW1574"></div></div><script async="" src="data:text/javascript,%0A%20___saveJQFromPrototype%28function%28%29%20%7B%20tagger%20%3D%20new%20KeywordTagger%28%20___saveJQFromPrototype%28%27%23KW1574%27%29.get%280%29%2C%20%7B%20editor%3A%20true%2C%20name%3A%27keyword%27%2C%20entryID%3A%27E5D5HJWH7043NXH%27%2C%20tags%3A%20%5B%22iphone%22%2C%22debugging%22%2C%22kernel%22%2C%22hacking%22%2C%22ios%22%2C%22ipad%22%2C%22ipod%22%5D%2Ctype%3A%20%27INSTRUCTABLE%27%20%20%7D%20%29%3B%0A%7D%29%3B" type="text/javascript" class="" style="">
+ ___saveJQFromPrototype(function() { tagger = new KeywordTagger( ___saveJQFromPrototype('#KW1574').get(0), { editor: true, name:'keyword', entryID:'E5D5HJWH7043NXH', tags: ["iphone","debugging","kernel","hacking","ios","ipad","ipod"],type: 'INSTRUCTABLE'  } );
+});</script></td><td valign="top"><div class="sidebarBox"><div class="sidebarBoxHeader">Categories</div><div id="CC1031" class="sidebarBoxContent"><div id="byCategoryChannel1575" class="categoryAndChannelChanger_div_0"><select name="category"><option value="food">food</option><option value="living">living</option><option value="outside">outside</option><option value="play">play</option><option selected="selected" value="technology">technology</option><option value="workshop">workshop</option></select><select name="channel"><option value="3D-Printing">3D-Printing</option><option value="apple">apple</option><option value="arduino">arduino</option><option value="art">art</option><option value="assistive-technology">assistive-technology</option><option value="audio">audio</option><option selected="selected" value="cell-phones">cell-phones</option><option value="clocks">clocks</option><option value="cnc">cnc</option><option value="computers">computers</option><option value="el-wire">el-wire</option><option value="electronics">electronics</option><option value="gadgets">gadgets</option><option value="kits">kits</option><option value="laptops">laptops</option><option value="lasers">lasers</option><option value="leds">leds</option><option value="linux">linux</option><option value="microcontrollers">microcontrollers</option><option value="microsoft">microsoft</option><option value="photography">photography</option><option value="remote-control">remote-control</option><option value="reuse">reuse</option><option value="robots">robots</option><option value="science">science</option><option value="sensors">sensors</option><option value="soft-circuits">soft-circuits</option><option value="software">software</option><option value="soldering">soldering</option><option value="speakers">speakers</option><option value="steampunk">steampunk</option><option value="tools">tools</option><option value="usb">usb</option><option value="websites">websites</option><option value="wireless">wireless</option></select></div></div><input id="update1575" value="Update" class="button categoryAndChannelChanger_input_1" type="button"></div></td></tr><tr><td colspan="2"><form action="/edit/license" method="post" id="LicenseForm"><input name="posted" value="1347486989733" type="hidden"><input name="instructableId" value="E5D5HJWH7043NXH" type="hidden"><div class="sidebarBox changeLicense_div_0"><div class="sidebarBoxHeader">Change License</div><div class="sidebarBoxContent"><nobr><select id="selectIT" name="license" class="changeLicense_select_1"><option value="NONE">None (All Rights Reserved)</option><option value="PD">Public Domain</option><option value="BY">Attribution</option><option value="BY_NC">Attribution-NonCommercial</option><option value="BY_NC_SA" selected="selected">Attribution-NonCommercial-ShareAlike</option><option value="BY_SA">Attribution-ShareAlike</option><option value="BY_NC_ND">Attribution-NonCommercial-NoDerivs</option><option value="BY_ND">Attribution-NoDerivs</option><option value="GPL">General Public License</option><option value="LGPL">Lesser General Public License</option><option value="APACHE">Apache License</option></select>&nbsp;
+
+<input id="" value="Change" class="button" style="width:40px" onclick="changeLicense();" tabindex="" onmouseover="this.className = 'button_over';" onmouseout="this.className = 'button';" rel="" type="button"></nobr></div></div></form></td></tr></tbody></table></div></div><div class="newrightbar_div_10"><script async="" src="data:text/javascript,%0A%20%20%20%20%20%20GA_googleFillSlot%28%22technology_med_rectangle%22%29%3B%0A%20%20%20%20" class="" type="text/javascript" style="">
+      GA_googleFillSlot("technology_med_rectangle");
+    </script><div id="google_ads_div_technology_med_rectangle_ad_wrapper">
+<div style="display:inline-block;" id="google_ads_div_technology_med_rectangle_ad_container">
+<ins style="width: 300px; height: 250px; display: inline-table; position: relative; border: 0px none;"><ins style="width: 300px; height: 250px; display: block; position: relative; border: 0px none;"><iframe style="border: 0px none; position: absolute; top: 0px; left: 0px;" marginheight="0" marginwidth="0" name="google_ads_iframe_technology_med_rectangle" id="google_ads_iframe_technology_med_rectangle" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins></div>
+</div>
+<script async="" src="data:text/javascript,GA_googleCreateDomIframe%28%22google_ads_div_technology_med_rectangle_ad_container%22%20%2C%22technology_med_rectangle%22%29%3B">GA_googleCreateDomIframe("google_ads_div_technology_med_rectangle_ad_container" ,"technology_med_rectangle");</script></div><div class="newrightbar_div_11"><script async="" src="data:text/javascript,%0A%20%20%20%20%20%20GA_googleFillSlot%28%22_house%22%29%3B%0A%20%20%20%20" class="" type="text/javascript" style="">
+      GA_googleFillSlot("_house");
+    </script></div><ul id="meta-tabs" class="small-tabs clearfix"><li class="active"><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/meta-info">Info</a></li><li><a href="http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/meta-stats">Stats</a></li></ul><div class="hatbox" id="meta-info-sidebar-box"><div id="meta-info" class="hatbox-content info meta-tab"><p class="hits-count"><span>0</span><br>
+          views
+        </p><div style="cursor: pointer; width: 150px;" id="rate_E5D5HJWH7043NXH" class="login-required">
+    &nbsp;<img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/star-off-big.png" alt="1" title="bad">&nbsp;<img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/star-off-big.png" alt="2" title="poor">&nbsp;<img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/star-off-big.png" alt="3" title="regular">&nbsp;<img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/star-off-big.png" alt="4" title="good">&nbsp;<img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/star-off-big.png" alt="5" title="gorgeous"><input name="score" type="hidden"></div><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/jquery.js" type="text/javascript" class="" style=""></script><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/RatingStars.js" type="text/javascript" class="" style=""></script><script async="" src="data:text/javascript,%0A%20%20%20%20%20%20%24%28function%20%28%29%20%7B%0A%20%20%20%20%0A%20%20%20%20%20%20var%20readonly%20%3D%20false%3B%0A%20%20%20%20%0A%20%20%20%20var%20stars%20%3D%20new%20RatingStars%28%24%28%22%23rate_E5D5HJWH7043NXH%22%29%2C%20%7B%0A%20%20%20%20%20%20%20%20rating%3A%200.0%2C%0A%20%20%20%20%20%20%20%20readonly%3A%20readonly%2C%0A%20%20%20%20%20%20%20%20id%3A%20%22E5D5HJWH7043NXH%22%2C%0A%20%20%20%20%20%20%20%20category%3A%20%22INSTRUCTABLE%22%0A%20%20%20%20%7D%29%3B%0A%20%20%20%20%0A%20%20%20%20%7D%29%3B%0A%20%20" type="text/javascript" class="" style="">
+      $(function () {
+    
+      var readonly = false;
+    
+    var stars = new RatingStars($("#rate_E5D5HJWH7043NXH"), {
+        rating: 0.0,
+        readonly: readonly,
+        id: "E5D5HJWH7043NXH",
+        category: "INSTRUCTABLE"
+    });
+    
+    });
+  </script><div id="ratersDiv" class="rating_div_2" style="display: none">Ratings:<br></div><div class="author-info clearfix"><div class="following"><div class="bubble">0<br><span>Followers</span><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/probox-bubble-point.png" class="bubble-point"></div><input class="big-button" value="Follow" id="subscribe-info" onclick="subscribe('USER','MDW0D7MH7043NXF',$('#subscribe-info'));" type="button"></div><div class="about-author"><p><span class="faded">Author:</span><a href="http://www.instructables.com/member/hackerfantastic/" title="view hackerfantastic's profile">hackerfantastic</a></p><p><span class="faded">Published:</span><span class="published">Sep 12, 2012</span></p><p><span class="faded">License:</span><span class="license"><a href="#" onclick="window.open('/static/entry/license/BY_NC_SA.html','LICENSE','status=yes,scrollbars=yes,resizable=yes,width=450,height=400'); return false;"><img alt="Attribution-NonCommercial-ShareAlike" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/by-nc-sa_small.png"></a></span></p></div></div><p class="related"><span class="faded">Related: </span><a class="related" href="http://www.instructables.com/tag/type-id/category-technology/keyword-iphone/">iphone</a>, <a class="related" href="http://www.instructables.com/tag/type-id/category-technology/keyword-debugging/">debugging</a>, <a class="related" href="http://www.instructables.com/tag/type-id/category-technology/keyword-kernel/">kernel</a>, <a class="related" href="http://www.instructables.com/tag/type-id/category-technology/keyword-hacking/">hacking</a>, <a class="related" href="http://www.instructables.com/tag/type-id/category-technology/keyword-ios/">ios</a>, <a class="related" href="http://www.instructables.com/tag/type-id/category-technology/keyword-ipad/">ipad</a>, <a class="related" href="http://www.instructables.com/tag/type-id/category-technology/keyword-ipod/">ipod</a></p></div><div id="meta-stats" class="hatbox-content meta-tab"><p>Total Views: <strong>0</strong></p><p>Today Views: <strong>0</strong></p><p>Comments: <strong>0</strong></p><p>Rating: <strong>
+          0
+        </strong></p></div></div><div class="hatbox" id="related_content"><h3>Related</h3><div class="hatbox-content instructable"><p class="clearfix related_item"><a href="http://www.instructables.com/id/40-and-401-iOS-Easy-2-Step-Jailbreak-for-iPhone/" class="imglink" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:0/']);"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FQ7IEAGGJQEMA9D.jpg" alt="4.0 and 4.0.1 iOS Easy 2-Step Jailbreak for iPhone/iPod/iPad" title=""></a><a href="http://www.instructables.com/id/40-and-401-iOS-Easy-2-Step-Jailbreak-for-iPhone/" class="title" title="4.0 and 4.0.1 iOS Easy 2-Step Jailbreak for iPhone/iPod/iPad" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:0/']);">4.0 and 4.0.1 iOS Easy 2-Step Jailbreak for iPhone/iPod/iPad</a><br>
+  		    by
+  		  <a href="http://www.instructables.com/member/Chibichuba/" class="user" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/memberLink/']);">Chibichuba</a><br></p><p class="clearfix related_item"><a href="http://www.instructables.com/id/Jailbreak-iOS5/" class="imglink" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:1/']);"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FNNVJ00GUMFU0IS.jpg" alt="Jailbreak iOS5!" title=""></a><a href="http://www.instructables.com/id/Jailbreak-iOS5/" class="title" title="Jailbreak iOS5!" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:1/']);">Jailbreak iOS5!</a><br>
+  		    by
+  		  <a href="http://www.instructables.com/member/astroboy907/" class="user" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/memberLink/']);">astroboy907</a><br></p><p class="clearfix related_item"><a href="http://www.instructables.com/id/How-to-make-a-home-made-stylus-for-your-IPhone-IP/" class="imglink" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:2/']);"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FLMPL2BH1YOAYLY.jpg" alt="How to make a home made stylus for your IPhone, IPod, IPad" title=""></a><a href="http://www.instructables.com/id/How-to-make-a-home-made-stylus-for-your-IPhone-IP/" class="title" title="How to make a home made stylus for your IPhone, IPod, IPad" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:2/']);">How to make a home made stylus for your IPhone, IPod, IPad</a><br>
+  		    by
+  		  <a href="http://www.instructables.com/member/TheNailDutchess/" class="user" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/memberLink/']);">TheNailDutchess</a><br></p><p class="clearfix related_item"><a href="http://www.instructables.com/id/Self-made-universal-mount-suitable-to-mobile-phon/" class="imglink" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:3/']);"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FPBKG0AGXUZEI5Q.jpg" alt="Self made universal mount suitable to: mobile phone, smartphone, iPhone, iPod, iPad, GPS PDA, mp3 players and similar, ." title=""></a><a href="http://www.instructables.com/id/Self-made-universal-mount-suitable-to-mobile-phon/" class="title" title="Self made universal mount suitable to: mobile phone, smartphone, iPhone, iPod, iPad, GPS PDA, mp3 players and similar, ." onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:3/']);">Self made universal mount suitable to: mobile phone, smartphone, iPhone, iPod, iPad, GP…</a><br>
+  		    by
+  		  <a href="http://www.instructables.com/member/florerorevolution/" class="user" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/memberLink/']);">florerorevolution</a><br></p><p class="clearfix related_item"><a href="http://www.instructables.com/id/How-to-jailbreak-Iphone-and-IpodTouch-313-Easy-/" class="imglink" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:4/']);"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FMYKVRGGNBEVD5H.jpg" alt="How to jailbreak Iphone and IpodTouch 3.1.3 " easy="" way""="" title=""></a><a href="http://www.instructables.com/id/How-to-jailbreak-Iphone-and-IpodTouch-313-Easy-/" class="title" title="How to jailbreak Iphone and IpodTouch 3.1.3 " easy="" way""="" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/position:4/']);">How to jailbreak Iphone and IpodTouch 3.1.3 "Easy Way"</a><br>
+  		    by
+  		  <a href="http://www.instructables.com/member/palms14/" class="user" onclick="_gaq.push(['_trackPageview', '/event/related/rhs/memberLink/']);">palms14</a><br></p><div class="clearfix"><p class="viewall pager relatedItems_p_9" id="viewallLink_id"><a class="gray-btn" href="http://www.instructables.com/tag/type-id/?q=iphone+debugging+kernel+hacking+ios+ipad+ipod+technology+cell-phones&amp;handler=standard&amp;relatedToId=E5D5HJWH7043NXH&amp;sort=none">More Related</a></p></div></div></div><div class="hatbox"><h3>Guides</h3><div class="hatbox-content guideImage guides_div_0"><div class="image-display-wrapper guide guides_div_1 ml15"><p class="image-display guides"></p><h2><a href="http://www.instructables.com/id/iPhone-Hacks/">iPhone Hacks</a></h2><a href="http://www.instructables.com/id/iPhone-Hacks/"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/F1P2DMCGV0KXZNM.jpg" class="guides_img_2"></a><p></p></div><br class="clear"><div class="image-display-wrapper guide guides_div_1 ml15"><p class="image-display guides"></p><h2><a href="http://www.instructables.com/id/iPhone-21/">iPhone</a></h2><a href="http://www.instructables.com/id/iPhone-21/"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/FEQFVOMGFA3YD2A.jpg" class="guides_img_2"></a><p></p></div><br class="clear"><div class="pager guides_div_3"><a class="gray-btn" href="http://www.instructables.com/tag/type-id/guide-true/">More Guides</a></div><br class="clear"></div></div></div><br clear="all"></div></div><div id="footer"><div id="footer-search"><div id="other-locations"><a target="_blank" href="http://www.facebook.com/instructables"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/fb.png"></a><a target="_blank" href="http://www.twitter.com/instructables"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/twitter.png"></a></div><div id="searchbox"><form action="http://www.instructables.com/pages/search/search.jsp" method="get" id="footer-search-form"><input name="cx" value="partner-pub-1783560022203827:npr2q7v5m6t" type="hidden"><input name="cof" value="FORID:11" type="hidden"><input name="ie" value="ISO-8859-1" type="hidden"><input style="background-image: url(&quot;/static/img/google_custom_search_watermark.gif&quot;);" class="barinput" name="q" id="q2" type="text"><a href="#" onclick="document.getElementById('footer-search-form').submit();" id="searchbutton"><span>Search</span></a></form></div></div><div id="footerstuff"><div id="morefrom" class="col"><h3>Explore Channels in Technology</h3><div class="footerchannels"><ul><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-3D-Printing/"><span>3D Printing</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-apple/"><span>Apple</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-arduino/"><span>Arduino</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-art/"><span>Art</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-assistive-technology/"><span>Assistive Tech</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-audio/"><span>Audio</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-cell-phones/"><span>Cell Phones</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-clocks/"><span>Clocks</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-cnc/"><span>CNC</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-computers/"><span>Computers</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-el-wire/"><span>El Wire</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-electronics/"><span>Electronics</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-gadgets/"><span>Gadgets</span></a></li></ul><ul><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-kits/"><span>Kits</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-laptops/"><span>Laptops</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-lasers/"><span>Lasers</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-leds/"><span>LEDs</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-linux/"><span>Linux</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-microcontrollers/"><span>Microcontrollers</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-microsoft/"><span>Microsoft</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-photography/"><span>Photography</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-remote-control/"><span>Remote Control</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-reuse/"><span>Reuse</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-robots/"><span>Robots</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-science/"><span>Science</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-sensors/"><span>Sensors</span></a></li></ul><ul><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-soft-circuits/"><span>Soft Circuits</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-software/"><span>Software</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-soldering/"><span>Soldering</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-speakers/"><span>Speakers</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-steampunk/"><span>Steampunk</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-tools/"><span>Tools</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-usb/"><span>USB</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-websites/"><span>Websites</span></a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-wireless/"><span>Wireless</span></a></li></ul></div></div><div id="newsletter-column" class="col"><h3>Join Our Newsletter</h3><p>Join over 800,000 Instructable fans who receive our DIY newsletter.</p><p><input id="newslettersignuptext" class="text" value="enter email" onfocus="if(this.value == 'enter email')this.value='';" type="text"><a id="join-btn" href="#" onclick="openSubscribePopUp(document.getElementById('newslettersignuptext'));return false;"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/join.png"></a></p><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/cust-supt.png"></div><div id="footer-about" class="col"><h3>About Us</h3><ul><li><a href="http://www.instructables.com/about/">About</a></li><li><a id="mobile-site-link" href="http://m.instructables.com/">Mobile Site</a></li><li><a href="http://www.instructables.com/advertise/">Advertise</a></li><li><a href="http://www.instructables.com/community/Instructables-in-the-News/">Press</a></li><li><a href="http://www.instructables.com/about/contact.jsp">Contact</a></li><li><a href="http://www.instructables.com/community?categoryGroup=marketplace&amp;category=jobs_internships">Jobs</a></li><li><a onclick="window.open('/tos.html','TOS','status=yes,scrollbars=yes,resizable=yes,width=600,height=480'); return false;" href="http://www.instructables.com/tos.html">Legal</a></li><li><a href="http://www.instructables.com/community?categoryGroup=Help">Help</a></li><li><a href="http://usa.autodesk.com/privacy/">Privacy Policy</a></li></ul></div><div class="col"><a class="pro-btns" href="http://www.instructables.com/account/gopro?sourcea=footer"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/go-pro.png" alt="Go Pro!"></a><a class="pro-btns" href="http://www.instructables.com/account/give?sourcea=footer"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/give-pro.png" alt="Give Pro"></a></div></div><p id="copyright" class="copyright"></p></div><div class="promodal" id="login-modal"><div class="promodal-inner"><div class="promodal-top"><img class="promodal-proburst" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/promodal-proburst.png" alt="Pro"><h3>Get More Out of Instructables</h3><h3 id="login-account-h">Already have an Account?</h3><a class="promodal-close" href="#"><img src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/promodal-close.png" alt="close"></a></div><div id="upgrade-features"><img id="login-allsteps" src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/login_allsteps.png"><p><strong>All Steps Viewing</strong><br>
+        View all steps of an Instructable on the same page when you're a Pro Member.</p><a id="login-upgrade" href="http://www.instructables.com/account/gopro?sourcea=login"><span>Upgrade to Pro today!</span></a></div><div class="login loginform" id="loginform"><form id="login" method="post" action="/account/login?nxtPgName=Apple+iOS+Serial%2FUSB+Cable+for+Kernel+Debugging&amp;nxtPg=/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/"><div class="username"><label for="username_nav" id="username_label">Username</label><input id="username_nav" name="u" type="text"></div><div class="password"><label for="password_nav" id="password_label">Password</label><input id="password_nav" name="p" type="password"></div><div class="loginbutton"><input name="RememberME" value="checked" type="hidden"><input class="login-btn" value="Login" type="submit"></div><p class="forgot"><a href="http://www.instructables.com/account/forgot?nxtPgName=Apple+iOS+Serial%2FUSB+Cable+for+Kernel+Debugging&amp;nxtPg=/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/">(forgot username/password?)</a></p></form></div></div></div><div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div><div><iframe src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/xd_arbiter.html" name="fb_xdm_frame_http" id="fb_xdm_frame_http"></iframe><iframe src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/xd_arbiter_002.html" name="fb_xdm_frame_https" id="fb_xdm_frame_https"></iframe></div></div></div><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/all.js" type="text/javascript" class="" style=""></script><script async="" src="data:text/javascript,%0A%20%20%20%20%20%20%20%20%20%20FB.init%28%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20appId%3A%20%27140028286058792%27%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20cookie%3A%20false%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20xfbml%3A%20false%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20oauth%3A%20true%0A%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%28function%20%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20el%20%3D%20document.getElementById%28%22facebook-login%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28el%20%21%3D%20null%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20el.onclick%20%3D%20function%20%28evt%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20evt.preventDefault%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20FB.getLoginStatus%28function%28response%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28response.status%20%3D%3D%3D%20%27connected%27%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28response.authResponse%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20expirationDate%20%3D%20new%20Date%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20expirationDate.setMonth%28expirationDate.getMonth%28%29%2B6%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.cookie%20%3D%20%27fbat_140028286058792%3D%27%20%2B%20response.authResponse.accessToken%20%2B%20%27%3B%20domain%3D.instructables.com%3B%20expires%3D%27%20%2B%20expirationDate%20%2B%20%27%3B%20path%3D%2F%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20window.location.reload%28true%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20not%20logged%20into%20Facebook%20or%20not%20authorized%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20FB.login%28function%28response%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28response.authResponse%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20expirationDate%20%3D%20new%20Date%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20expirationDate.setMonth%28expirationDate.getMonth%28%29%2B6%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20document.cookie%20%3D%20%27fbat_140028286058792%3D%27%20%2B%20response.authResponse.accessToken%20%2B%20%27%3B%20domain%3D.instructables.com%3B%20expires%3D%27%20%2B%20expirationDate%20%2B%20%27%3B%20path%3D%2F%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20window.location.reload%28true%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20scope%3A%20%22email%2Cuser_birthday%2Cpublish_stream%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20redirect_url%3A%20%22http%3A%2F%2Fwww.instructables.com%2Fid%2FApple-iOS-SerialUSB-Cable-for-Kernel-Debugging%2F%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%7D%29%28%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20doRedirect%20%3D%20function%20%28params%2C%20source%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20o%20%3D%20%7B%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20o.location%20%3D%20window.location.href%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20o.host%20%3D%20window.location.host%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20o.protocol%20%3D%20window.location.protocol%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20o.doit%20%3D%20function%28%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28typeof%20params%20%3D%3D%3D%20%22undefined%22%29%20%7B%20%2F%2F%20no%20params%2C%20redirect%20to%20current%20page%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20window.location%20%3D%20o.location%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%3B%20%2F%2F%20we%20don%27t%20bother%20processing%20the%20rest%20of%20this%2C%20just%20immediately%20redirect%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20if%20%28params.indexOf%28%22%2Faccount%2Fgopro%22%29%20%21%3D%3D%20-1%29%20%7B%20%2F%2F%20found%20%22%2Faccount%2Fgopro%22%20in%20params%2C%20so%20redirect%20there%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20o.nextHref%20%3D%20o.protocol%20%2B%20%22%2F%2F%22%20%2B%20o.host%20%2B%20params%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20if%20%28params.indexOf%28%22nxtPg%3D%22%29%20%3D%3D%3D%20-1%29%20%7B%20%2F%2F%20we%20have%20a%20URL%20declared%20as%20a%20string%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20o.nextHref%20%3D%20params%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%20%2F%2F%20a%20string%20of%20query%20parameters%2C%20we%20need%20to%20parse%20out%20the%20values%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20o.nextPage%20%3D%20params.substring%28params.indexOf%28%22nxtPg%3D%22%29%20%2B%206%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20o.nextHref%20%3D%20o.protocol%20%2B%20%22%2F%2F%22%20%2B%20o.host%20%2B%20o.nextPage%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20window.location%20%3D%20o.nextHref%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28typeof%20source%20%21%3D%3D%20%22undefined%22%20%26%26%20source%20%21%3D%3D%20%22%22%20%26%26%20typeof%20_gaq%20%21%3D%3D%20%22undefined%22%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20_gaq.push%28%5B%27_trackPageview%27%2C%20%27%2Fevent%2Ffb_login%2F%27%20%2B%20source%20%2B%20%27%2F%27%5D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20o.doit%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20" class="" type="text/javascript" style="">
+          FB.init({
+            appId: '140028286058792',
+            cookie: false,
+            xfbml: false,
+            oauth: true
+          });
+          (function () {
+              var el = document.getElementById("facebook-login");
+              if (el != null) {
+                  el.onclick = function (evt) {
+                      evt.preventDefault();
+                      FB.getLoginStatus(function(response) {
+                          if (response.status === 'connected') {
+                              if (response.authResponse) {
+                                  var expirationDate = new Date;
+                                  expirationDate.setMonth(expirationDate.getMonth()+6);
+                                  document.cookie = 'fbat_140028286058792=' + response.authResponse.accessToken + '; domain=.instructables.com; expires=' + expirationDate + '; path=/';
+                                  window.location.reload(true);
+                              }
+                          } else {
+                              // not logged into Facebook or not authorized
+                              FB.login(function(response) {
+                                  if (response.authResponse) {
+                                      var expirationDate = new Date;
+                                      expirationDate.setMonth(expirationDate.getMonth()+6);
+                                      document.cookie = 'fbat_140028286058792=' + response.authResponse.accessToken + '; domain=.instructables.com; expires=' + expirationDate + '; path=/';
+                                      window.location.reload(true);
+                                  }
+                              }, {
+                                  scope: "email,user_birthday,publish_stream",
+                                  redirect_url: "http://www.instructables.com/id/Apple-iOS-SerialUSB-Cable-for-Kernel-Debugging/"
+                              });
+                          };
+                      })
+                  }
+              }
+          })();
+        
+            doRedirect = function (params, source) {
+                var o = {};
+                o.location = window.location.href;
+                o.host = window.location.host;
+                o.protocol = window.location.protocol;
+                o.doit = function(){
+                    if (typeof params === "undefined") { // no params, redirect to current page
+                        window.location = o.location;
+                        return; // we don't bother processing the rest of this, just immediately redirect
+                    } else if (params.indexOf("/account/gopro") !== -1) { // found "/account/gopro" in params, so redirect there
+                        o.nextHref = o.protocol + "//" + o.host + params;
+                    } else if (params.indexOf("nxtPg=") === -1) { // we have a URL declared as a string
+                        o.nextHref = params;
+                    } else { // a string of query parameters, we need to parse out the values
+                        o.nextPage = params.substring(params.indexOf("nxtPg=") + 6);
+                        o.nextHref = o.protocol + "//" + o.host + o.nextPage;
+                    }
+                    window.location = o.nextHref;
+                }();
+                if (typeof source !== "undefined" && source !== "" && typeof _gaq !== "undefined") {
+                    _gaq.push(['_trackPageview', '/event/fb_login/' + source + '/']);
+                }
+                return o.doit;
+            };
+        
+    </script><noscript><a href="http://www.quantcast.com/p-d6RKK49nWAdvA" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-d6RKK49nWAdvA.gif?labels=technology.cell-phones,member.technology.cell-phones" border="0" height="1" width="1" alt="Quantcast" class="quantcast_img_0" /></a></noscript>
+
+
+
+ 
+
+
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=7732561&c3=&c4=&c5=&c6=&c15=&cj=1" />
+</noscript>
+
+
+
+<script async="" src="data:text/javascript,%0A%20%20%20%20_gaq.push%28%5B%27_trackPageview%27%2C%20%27%2Fevent%2Ftechnology%2Fcell-phones%2FStep%20by%20Step%2Fnone%2Fcontest-%2F%27%5D%29%3B%0A%20%20" class="" type="text/javascript" style="">
+    _gaq.push(['_trackPageview', '/event/technology/cell-phones/Step by Step/none/contest-/']);
+  </script>
+
+  <!-- google_ad_section_start(weight=ignore) -->
+
+  
+
+  <!-- google_ad_section_end -->
+
+<script async="" src="data:text/javascript,%0A%20%20%24%28function%20%28%29%20%7B%0A%20%20%20%20%20%20%20%20%24%28%22%23author-bio%22%29.replaceWith%28%24%28%22%23authorBio%22%29%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%24%28%22%23authorBio%20.moreLink%22%29.click%28function%20%28evt%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20evt.preventDefault%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%22%23authorBio%20.cropped%22%29.toggle%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28%22%23authorBio%20.full%22%29.toggle%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28%24%28this%29.text%28%29.indexOf%28%22more%22%29%20%21%3D%3D%20-1%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28this%29.html%28%22%26laquo%3B%20less%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%28this%29.html%28%22%26raquo%3B%20more%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%7D%29%3B%0A" class="" type="text/javascript" style="">
+  $(function () {
+        $("#author-bio").replaceWith($("#authorBio"));
+        
+        $("#authorBio .moreLink").click(function (evt) {
+                evt.preventDefault();
+                $("#authorBio .cropped").toggle();
+                $("#authorBio .full").toggle();
+                if ($(this).text().indexOf("more") !== -1) {
+                        $(this).html("&laquo; less");
+                } else {
+                        $(this).html("&raquo; more");
+                }
+          });
+          
+  });
+</script><link rel="stylesheet" type="text/css" href="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/jquery.css"><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/statcard.js" class="" type="text/javascript" style=""></script><script src="Apple%20iOS%20Serial_USB%20Cable%20for%20Kernel%20Debugging_files/favoriter.js" class="" type="text/javascript" style=""></script></body></html>

